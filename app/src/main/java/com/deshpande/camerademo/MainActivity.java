@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     private Uri file;
     private Bitmap localBitmap;
     private Bitmap maskBitmap;
-    private MaskedDrawable mMaskedDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
