@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
     private Bitmap getObjectByMask(Bitmap mask){
         //mask = createTransparentBitmapFromBitmap(mask, Color.BLACK);
         if (mask != null) {
-            Bitmap result = Bitmap.createBitmap(mask.getWidth(), mask.getHeight(), Bitmap.Config.ARGB_4444);
+            Bitmap result = Bitmap.createBitmap(mask.getWidth(), mask.getHeight(), Bitmap.Config.ARGB_8888);
             Canvas tempCanvas = new Canvas(result);
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
