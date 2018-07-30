@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
             tempCanvas.drawBitmap(localBitmap, 0, 0, null);
-            mask = createTransparentBitmapFromBitmap(mask, Color.GREEN);//заменяем на маске Color.BLACK на прозрачный
+            mask = createTransparentBitmapFromBitmap(mask, Color.BLACK);//заменяем на маске Color.BLACK на прозрачный
             tempCanvas.drawBitmap(mask, 0, 0, paint);
             paint.setXfermode(null);
             return result;
