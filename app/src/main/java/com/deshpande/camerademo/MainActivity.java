@@ -13,6 +13,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ResourceBusyException;
 import android.net.Uri;
@@ -26,57 +27,100 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.*;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import com.example.photoeditor.OnPhotoEditorListener;
+import com.example.photoeditor.PhotoEditor;
+import com.example.photoeditor.PhotoEditorView;
+import com.example.photoeditor.ViewType;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnPhotoEditorListener, PropertiesBSFragment.Properties{
 
     private Button takePictureButton;
     private Button setMaskBtn;
     private Button getObjBtn;
     private Button slctMaskBtn;
-    private ImageView imageView;
+    private ImageView secondView;
+    private PhotoEditorView imageView;
     private Uri file;
+    private TextView mTxtCurrentTool;
+    private PhotoEditor mPhotoEditor;
     private Bitmap localBitmap;
     private Bitmap maskBitmap;
+    private Bitmap basicBitmap;
+    private Bitmap createdBitmapFromBrush;
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private PropertiesBSFragment mPropertiesBSFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        makeFullScreen();
         setContentView(R.layout.activity_main);
 
+        mPropertiesBSFragment = new PropertiesBSFragment();
+        mPropertiesBSFragment.setPropertiesChangeListener(this);
+
+        secondView = (ImageView) findViewById(R.id.secView);
         takePictureButton = (Button) findViewById(R.id.button_image);
         setMaskBtn = (Button) findViewById(R.id.buttonSet);
         getObjBtn = (Button) findViewById(R.id.buttonGet);
         slctMaskBtn = (Button) findViewById(R.id.slctMsk);
-        imageView = (ImageView) findViewById(R.id.imageview);
+        imageView = (PhotoEditorView) findViewById(R.id.photoEditorView);
         localBitmap = BitmapFactory.decodeResource(
                 getApplicationContext().getResources(),
                 R.drawable.photo);
         maskBitmap = BitmapFactory.decodeResource(
                 getApplicationContext().getResources(),
                 R.drawable.mask);
+        /*createdBitmapFromBrush = Bitmap.createBitmap(imageView.getSource().getWidth(), imageView.getSource().getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvasColored = new Canvas(createdBitmapFromBrush);
+        canvasColored.drawColor(Color.BLACK);*/
         Log.d("myLog","Height="+maskBitmap.getHeight() + " Width=" + maskBitmap.getWidth());
         Log.d("myLog","Height="+localBitmap.getHeight() + " Width=" + localBitmap.getWidth());
-        imageView.setImageBitmap(localBitmap);
+        try {
+            secondView.setImageBitmap(maskBitmap);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try {
+            imageView.getSource().setImageBitmap(localBitmap);
+            imageView.setDrawingCacheEnabled(true);
+            basicBitmap = Bitmap.createBitmap(imageView.getDrawingCache());
+            imageView.setDrawingCacheEnabled(false);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         OnClickListener setMskOncl = new OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageView.setImageBitmap(deletingMaskFromSource(localBitmap, maskBitmap));
+                imageView.getSource().setImageBitmap(deletingMaskFromSource(localBitmap, maskBitmap));
             }
         };
+        mPhotoEditor = new PhotoEditor.Builder(this, imageView)
+                .setPinchTextScalable(true) // set flag to make text scalable when pinch
+                //.setDefaultTextTypeface(mTextRobotoTf)
+                //.setDefaultEmojiTypeface(mEmojiTypeFace)
+                .build(); // build photo editor sdk
+
+        mPhotoEditor.setOnPhotoEditorListener(this);
+
         setMaskBtn.setOnClickListener(setMskOncl);
         OnClickListener getMskOncl = new OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageView.setImageBitmap(getObjectByMask(maskBitmap));
+                imageView.getSource().setImageBitmap(getObjectByMask(maskBitmap));
             }
         };
         getObjBtn.setOnClickListener(getMskOncl);
@@ -84,7 +128,14 @@ public class MainActivity extends AppCompatActivity {
         OnClickListener slctMskOncl = new OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageView.setImageBitmap(seletingObjectOnMask(maskBitmap, Color.GREEN));
+                try {
+                    mPhotoEditor.setBrushDrawingMode(true);
+                    mPropertiesBSFragment.show(getSupportFragmentManager(), mPropertiesBSFragment.getTag());
+                    onColorChanged(Color.WHITE);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                //imageView.getSource().setImageBitmap(seletingObjectOnMask(maskBitmap, Color.GREEN));
             }
         };
         slctMaskBtn.setOnClickListener(slctMskOncl);
@@ -95,6 +146,12 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
         }
     }
+
+    private void makeFullScreen() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
     //вырезает объект для заполнения фоном
     private Bitmap deletingMaskFromSource(Bitmap src, Bitmap mask){
         if (mask != null) {
@@ -241,6 +298,31 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, file);
 
         startActivityForResult(intent, 100);*/
+
+        try {
+            mPhotoEditor.setBrushDrawingMode(false);
+            Bitmap tempSrc = Bitmap.createBitmap(basicBitmap);
+            //Bitmap tempDst = Bitmap.createScaledBitmap(imageView.getDrawingCache(), tempSrc.getWidth(), tempSrc.getHeight(), false);
+            imageView.setDrawingCacheEnabled(true);
+            Bitmap tempDst = Bitmap.createBitmap(imageView.getDrawingCache());
+            imageView.setDrawingCacheEnabled(false);
+            Bitmap result = Bitmap.createBitmap(tempSrc.getWidth(), tempSrc.getHeight(), Bitmap.Config.RGB_565);
+
+            /*Log.d("Size Dst",tempDst.getWidth() +" "+tempDst.getHeight());
+            Log.d("Size Src", tempSrc.getWidth()+" "+tempSrc.getHeight());
+            Canvas tempCanvas = new Canvas(result);
+            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DARKEN));
+            tempCanvas.drawBitmap(tempSrc, 0, 0, null);
+            //mask = createTransparentBitmapFromBitmap(mask, Color.BLACK);//заменяем на маске Color.BLACK на прозрачный
+            tempCanvas.drawBitmap(tempDst, 0, 0, paint);
+            paint.setXfermode(null);*/
+            secondView.setImageBitmap(result);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         returnBackWithSavedImage();
     }
 
@@ -264,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             if (requestCode == 100) {
                 if (resultCode == RESULT_OK) {
-                    imageView.setImageURI(file);
+                    imageView.getSource().setImageURI(file);
                 }
             }
         }
@@ -324,4 +406,67 @@ public class MainActivity extends AppCompatActivity {
         return status.equals(Environment.MEDIA_MOUNTED);
     }
 
+    @Override
+    public void onEditTextChangeListener(final View rootView, String text, int colorCode) {
+        /*TextEditorDialogFragment textEditorDialogFragment =
+                TextEditorDialogFragment.show(this, text, colorCode);
+        textEditorDialogFragment.setOnTextEditorListener(new TextEditorDialogFragment.TextEditor() {
+            @Override
+            public void onDone(String inputText, int colorCode) {
+                mPhotoEditor.editText(rootView, inputText, colorCode);
+                mTxtCurrentTool.setText(R.string.label_text);
+            }
+        });*/
+    }
+
+    @Override
+    public void onAddViewListener(ViewType viewType, int numberOfAddedViews) {
+        Log.d(TAG, "onAddViewListener() called with: viewType = [" + viewType + "], numberOfAddedViews = [" + numberOfAddedViews + "]");
+    }
+
+    @Override
+    public void onRemoveViewListener(int numberOfAddedViews) {
+        Log.d(TAG, "onRemoveViewListener() called with: numberOfAddedViews = [" + numberOfAddedViews + "]");
+    }
+
+    @Override
+    public void onStartViewChangeListener(ViewType viewType) {
+        Log.d(TAG, "onStartViewChangeListener() called with: viewType = [" + viewType + "]");
+    }
+
+    @Override
+    public void onStopViewChangeListener(ViewType viewType) {
+        Log.d(TAG, "onStopViewChangeListener() called with: viewType = [" + viewType + "]");
+    }
+
+    @Override
+    public void onColorChanged(int colorCode) {
+        mPhotoEditor.setBrushColor(colorCode);
+    }
+
+    @Override
+    public void onBrushSizeChanged(int brushSize) {
+        mPhotoEditor.setBrushSize(brushSize);
+    }
+    public static Bitmap drawableToBitmap (Drawable drawable) {
+        Bitmap bitmap = null;
+
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            if(bitmapDrawable.getBitmap() != null) {
+                return bitmapDrawable.getBitmap();
+            }
+        }
+
+        if(drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
+            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888); // Single color bitmap will be created of 1x1 pixel
+        } else {
+            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        }
+
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+        return bitmap;
+    }
 }
