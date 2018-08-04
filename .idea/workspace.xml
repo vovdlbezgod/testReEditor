@@ -33,46 +33,27 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
           <provider editor-type-id="text-editor">
             <state relative-caret-position="735">
               <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_edit_image.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_image.xml">
-          <provider editor-type-id="android-designer2">
+          <provider selected="true" editor-type-id="android-designer2">
             <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="98" column="73" lean-forward="false" selection-start-line="98" selection-start-column="73" selection-end-line="98" selection-end-column="73" />
+            <state relative-caret-position="365">
+              <caret line="315" column="75" lean-forward="false" selection-start-line="315" selection-start-column="75" selection-end-line="315" selection-end-column="75" />
               <folding>
-                <element signature="e#4080#4297#0" expanded="true" />
-                <element signature="e#4296#4297#0" expanded="true" />
-                <element signature="e#4763#4960#0" expanded="true" />
-                <element signature="e#4959#4960#0" expanded="true" />
-                <element signature="e#5051#5605#0" expanded="true" />
-                <element signature="e#5604#5605#0" expanded="true" />
-                <element signature="e#17990#17991#0" expanded="true" />
-                <element signature="e#18043#18044#0" expanded="true" />
-                <element signature="e#18110#18111#0" expanded="true" />
-                <element signature="e#18162#18163#0" expanded="true" />
+                <element signature="e#17970#17971#0" expanded="true" />
+                <element signature="e#18023#18024#0" expanded="true" />
+                <element signature="e#18090#18091#0" expanded="true" />
+                <element signature="e#18142#18143#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,7 +62,7 @@
       <file leaf-file-name="PhotoEditorView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/photoeditor/src/main/java/com/example/photoeditor/PhotoEditorView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-205">
+            <state relative-caret-position="1659">
               <caret line="116" column="33" lean-forward="false" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="33" />
               <folding>
                 <element signature="e#4638#4639#0" expanded="true" />
@@ -94,8 +75,8 @@
       <file leaf-file-name="BrushDrawingView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/photoeditor/src/main/java/com/example/photoeditor/BrushDrawingView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3712">
-              <caret line="37" column="4" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="58" />
+            <state relative-caret-position="420">
+              <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="58" />
               <folding>
                 <element signature="e#3288#3289#0" expanded="true" />
                 <element signature="e#3321#3322#0" expanded="true" />
@@ -123,7 +104,7 @@
       <file leaf-file-name="PhotoEditor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/photoeditor/src/main/java/com/example/photoeditor/PhotoEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17677">
+            <state relative-caret-position="294">
               <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding />
             </state>
@@ -132,14 +113,14 @@
       </file>
       <file leaf-file-name="view_photo_editor_image.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/photoeditor/src/main/res/layout/view_photo_editor_image.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -3799,13 +3780,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/ColorPickerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_bottom_properties_dialog.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/PropertiesBSFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/photoeditor/src/main/java/com/example/photoeditor/BrushDrawingView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/MainActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1938" />
@@ -3827,8 +3808,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3839,63 +3819,11 @@
             <path>
               <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="camerademo" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="camerademo" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
-              <item name="photoeditor" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
-              <item name="photoeditor" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
-              <item name="photoeditor" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="photoeditor" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
-              <item name="photoeditor" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="photoeditor" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
-              <item name="photoeditor" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
               <item name="photoeditor" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="testReEditor" type="1abcf292:AndroidViewProjectNode" />
@@ -3905,8 +3833,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4024,36 +3953,6 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="testReEditor" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="testReEditor" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -4088,17 +3987,6 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="testReEditor" />
-    </configuration>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="HTML_FILE_NAME" />
@@ -4113,6 +4001,47 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="testReEditor" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="testReEditor" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="testReEditor" />
     </configuration>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -4211,7 +4140,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -4221,7 +4150,6 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5021482" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -4233,9 +4161,9 @@
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -4243,6 +4171,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -4254,25 +4183,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6489">
-          <caret line="309" column="25" lean-forward="true" selection-start-line="309" selection-start-column="25" selection-end-line="309" selection-end-column="25" />
-          <folding>
-            <element signature="e#4080#4297#0" expanded="true" />
-            <element signature="e#4296#4297#0" expanded="true" />
-            <element signature="e#4763#4960#0" expanded="true" />
-            <element signature="e#4959#4960#0" expanded="true" />
-            <element signature="e#5051#5605#0" expanded="true" />
-            <element signature="e#5604#5605#0" expanded="true" />
-            <element signature="e#17990#17991#0" expanded="true" />
-            <element signature="e#18043#18044#0" expanded="true" />
-            <element signature="e#18110#18111#0" expanded="true" />
-            <element signature="e#18162#18163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -4391,7 +4301,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4431,19 +4340,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-924">
           <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_tools_paint.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/photoeditor/src/main/res/font/roboto_medium.xml" />
@@ -4456,13 +4364,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/photoeditor/src/main/res/layout/view_photo_editor_text.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
@@ -4489,44 +4397,43 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/photoeditor/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/ColorPickerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_bottom_properties_dialog.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/PropertiesBSFragment.java">
@@ -4542,91 +4449,45 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_image.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_165218.jpg">
-      <provider selected="true" editor-type-id="images">
+      <provider editor-type-id="android-designer2">
         <state />
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_164831.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180730_164326.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_165313.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_165220.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_165234.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_165218.jpg" />
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_164831.jpg" />
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180730_164326.jpg" />
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_165313.jpg" />
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_165220.jpg" />
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_5X_API_27_x86 [emulator-5554]/sdcard/Pictures/CameraDemo/IMG_20180803_165234.jpg" />
     <entry file="file://$PROJECT_DIR$/photoeditor/src/main/res/layout/view_photo_editor_image.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/photoeditor/src/main/java/com/example/photoeditor/PhotoEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17677">
+        <state relative-caret-position="294">
           <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/photoeditor/src/main/java/com/example/photoeditor/PhotoEditorView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-205">
-          <caret line="116" column="33" lean-forward="false" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="33" />
-          <folding>
-            <element signature="e#4638#4639#0" expanded="true" />
-            <element signature="e#4671#4672#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/photoeditor/src/main/java/com/example/photoeditor/BrushDrawingView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3712">
-          <caret line="37" column="4" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="58" />
+        <state relative-caret-position="420">
+          <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="58" />
           <folding>
             <element signature="e#3288#3289#0" expanded="true" />
             <element signature="e#3321#3322#0" expanded="true" />
@@ -4636,21 +4497,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/photoeditor/src/main/java/com/example/photoeditor/PhotoEditorView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1659">
+          <caret line="116" column="33" lean-forward="false" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="33" />
+          <folding>
+            <element signature="e#4638#4639#0" expanded="true" />
+            <element signature="e#4671#4672#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/emulator-5554/sdcard/Pictures/CameraDemo/IMG_20180804_160149.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="98" column="73" lean-forward="false" selection-start-line="98" selection-start-column="73" selection-end-line="98" selection-end-column="73" />
+        <state relative-caret-position="365">
+          <caret line="315" column="75" lean-forward="false" selection-start-line="315" selection-start-column="75" selection-end-line="315" selection-end-column="75" />
           <folding>
-            <element signature="e#4080#4297#0" expanded="true" />
-            <element signature="e#4296#4297#0" expanded="true" />
-            <element signature="e#4763#4960#0" expanded="true" />
-            <element signature="e#4959#4960#0" expanded="true" />
-            <element signature="e#5051#5605#0" expanded="true" />
-            <element signature="e#5604#5605#0" expanded="true" />
-            <element signature="e#17990#17991#0" expanded="true" />
-            <element signature="e#18043#18044#0" expanded="true" />
-            <element signature="e#18110#18111#0" expanded="true" />
-            <element signature="e#18162#18163#0" expanded="true" />
+            <element signature="e#17970#17971#0" expanded="true" />
+            <element signature="e#18023#18024#0" expanded="true" />
+            <element signature="e#18090#18091#0" expanded="true" />
+            <element signature="e#18142#18143#0" expanded="true" />
           </folding>
         </state>
       </provider>

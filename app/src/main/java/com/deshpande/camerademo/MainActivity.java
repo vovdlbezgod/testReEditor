@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
     private Button setMaskBtn;
     private Button getObjBtn;
     private Button slctMaskBtn;
-    private ImageView secondView;
     private PhotoEditorView imageView;
     private Uri file;
     private TextView mTxtCurrentTool;
@@ -60,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
     private Bitmap createdBitmapFromBrush;
     private static final String TAG = MainActivity.class.getSimpleName();
     private PropertiesBSFragment mPropertiesBSFragment;
+    private ImageView exView;
 
 
     @Override
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         mPropertiesBSFragment = new PropertiesBSFragment();
         mPropertiesBSFragment.setPropertiesChangeListener(this);
 
-        secondView = (ImageView) findViewById(R.id.secView);
+        exView = (ImageView) findViewById(R.id.secView);
         takePictureButton = (Button) findViewById(R.id.button_image);
         setMaskBtn = (Button) findViewById(R.id.buttonSet);
         getObjBtn = (Button) findViewById(R.id.buttonGet);
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         Log.d("myLog","Height="+maskBitmap.getHeight() + " Width=" + maskBitmap.getWidth());
         Log.d("myLog","Height="+localBitmap.getHeight() + " Width=" + localBitmap.getWidth());
         try {
-            secondView.setImageBitmap(maskBitmap);
+            exView.setImageBitmap(maskBitmap);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -301,24 +301,24 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
 
         try {
             mPhotoEditor.setBrushDrawingMode(false);
-            Bitmap tempSrc = Bitmap.createBitmap(basicBitmap);
-            //Bitmap tempDst = Bitmap.createScaledBitmap(imageView.getDrawingCache(), tempSrc.getWidth(), tempSrc.getHeight(), false);
+            Bitmap tempSrc = Bitmap.createBitmap(localBitmap);
             imageView.setDrawingCacheEnabled(true);
-            Bitmap tempDst = Bitmap.createBitmap(imageView.getDrawingCache());
+            Bitmap tempDst = Bitmap.createScaledBitmap(imageView.getDrawingCache(), tempSrc.getWidth(), tempSrc.getHeight(), false);
+            //Bitmap tempDst = Bitmap.createBitmap(imageView.getDrawingCache());
             imageView.setDrawingCacheEnabled(false);
             Bitmap result = Bitmap.createBitmap(tempSrc.getWidth(), tempSrc.getHeight(), Bitmap.Config.RGB_565);
 
-            /*Log.d("Size Dst",tempDst.getWidth() +" "+tempDst.getHeight());
+            Log.d("Size Dst",tempDst.getWidth() +" "+tempDst.getHeight());
             Log.d("Size Src", tempSrc.getWidth()+" "+tempSrc.getHeight());
             Canvas tempCanvas = new Canvas(result);
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DARKEN));
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
             tempCanvas.drawBitmap(tempSrc, 0, 0, null);
             //mask = createTransparentBitmapFromBitmap(mask, Color.BLACK);//заменяем на маске Color.BLACK на прозрачный
             tempCanvas.drawBitmap(tempDst, 0, 0, paint);
-            paint.setXfermode(null);*/
-            secondView.setImageBitmap(result);
+            paint.setXfermode(null);
+            exView.setImageBitmap(result);
         }catch (Exception e){
             e.printStackTrace();
         }
