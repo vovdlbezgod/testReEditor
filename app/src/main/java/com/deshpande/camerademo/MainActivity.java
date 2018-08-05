@@ -4,22 +4,18 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.ResourceBusyException;
 import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -99,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
             e.printStackTrace();
         }
         try {
-            imageView.getSource().setImageBitmap(localBitmap);
+            imageView.getSource().setImageBitmap(seletingObjectOnMask(maskBitmap,Color.GREEN));
             imageView.setDrawingCacheEnabled(true);
 //            basicBitmap = Bitmap.createBitmap(imageView.getDrawingCache());
             imageView.setDrawingCacheEnabled(false);
@@ -125,7 +121,9 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         OnClickListener getMskOncl = new OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageView.getSource().setImageBitmap(getObjectByMask(maskBitmap));
+                imageView.getSource().setImageBitmap(seletingObjectOnMask(maskBitmap, Color.RED));
+                imageView.getmBrushDrawingView().clearAll();
+                //imageView.getSource().setImageBitmap(getObjectByMask(maskBitmap));
             }
         };
         getObjBtn.setOnClickListener(getMskOncl);
@@ -490,8 +488,8 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: // нажатие
                 Log.d("TouchPos", "x: "+x+" y:"+y);
-                Log.d("Point in Mask",""+positionOfMask(getObjectByMask(maskBitmap),x,y));
-                if(positionOfMask(getObjectByMask(maskBitmap),x,y)){
+                Log.d("Point in Mask",""+ checkPositionOnMask(maskBitmap,x,y));
+                if(checkPositionOnMask(maskBitmap,x,y)){
                     imageView.getSource().setImageBitmap(deletingMaskFromSource(localBitmap,maskBitmap));
                     mPhotoEditor.addImage(getObjectByMask(maskBitmap));
                 }
@@ -510,8 +508,15 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         //tv.setText(sDown + "\n" + sMove + "\n" + sUp);
         return true;
     }
-    private boolean positionOfMask(Bitmap mask, float x, float y){
-        if(mask.getPixel(Math.round(x),Math.round(y))!=Color.TRANSPARENT){
+
+    private boolean checkPositionOnMask(Bitmap mask, float x, float y){
+        imageView.setDrawingCacheEnabled(true);
+        Bitmap tempSrc = Bitmap.createBitmap(imageView.getDrawingCache());
+        imageView.setDrawingCacheEnabled(false);
+        Bitmap tempDst = Bitmap.createScaledBitmap(mask, tempSrc.getWidth(), tempSrc.getHeight(), false);
+        int tempX = Math.round(x);
+        int tempY = Math.round(y);
+        if(tempDst.getPixel(tempX,tempY)==Color.BLACK || tempSrc.getPixel(tempX,tempY)==Color.WHITE){
             return false;
         }
         return true;

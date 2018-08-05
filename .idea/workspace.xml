@@ -47,20 +47,20 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="494" column="102" lean-forward="false" selection-start-line="494" selection-start-column="102" selection-end-line="494" selection-end-column="102" />
+            <state relative-caret-position="327">
+              <caret line="511" column="35" lean-forward="false" selection-start-line="511" selection-start-column="35" selection-end-line="511" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4263#4480#0" expanded="true" />
-                <element signature="e#4479#4480#0" expanded="true" />
-                <element signature="e#5007#5204#0" expanded="true" />
-                <element signature="e#5203#5204#0" expanded="true" />
-                <element signature="e#5295#5849#0" expanded="true" />
-                <element signature="e#5848#5849#0" expanded="true" />
-                <element signature="e#18506#18507#0" expanded="true" />
-                <element signature="e#18559#18560#0" expanded="true" />
-                <element signature="e#18626#18627#0" expanded="true" />
-                <element signature="e#18678#18679#0" expanded="true" />
+                <element signature="e#4148#4365#0" expanded="true" />
+                <element signature="e#4364#4365#0" expanded="true" />
+                <element signature="e#4892#5251#0" expanded="true" />
+                <element signature="e#5250#5251#0" expanded="true" />
+                <element signature="e#5342#5896#0" expanded="true" />
+                <element signature="e#5895#5896#0" expanded="true" />
+                <element signature="e#18553#18554#0" expanded="true" />
+                <element signature="e#18606#18607#0" expanded="true" />
+                <element signature="e#18673#18674#0" expanded="true" />
+                <element signature="e#18725#18726#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -4556,20 +4556,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deshpande/camerademo/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="494" column="102" lean-forward="false" selection-start-line="494" selection-start-column="102" selection-end-line="494" selection-end-column="102" />
+        <state relative-caret-position="327">
+          <caret line="511" column="35" lean-forward="false" selection-start-line="511" selection-start-column="35" selection-end-line="511" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4263#4480#0" expanded="true" />
-            <element signature="e#4479#4480#0" expanded="true" />
-            <element signature="e#5007#5204#0" expanded="true" />
-            <element signature="e#5203#5204#0" expanded="true" />
-            <element signature="e#5295#5849#0" expanded="true" />
-            <element signature="e#5848#5849#0" expanded="true" />
-            <element signature="e#18506#18507#0" expanded="true" />
-            <element signature="e#18559#18560#0" expanded="true" />
-            <element signature="e#18626#18627#0" expanded="true" />
-            <element signature="e#18678#18679#0" expanded="true" />
+            <element signature="e#4148#4365#0" expanded="true" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4892#5251#0" expanded="true" />
+            <element signature="e#5250#5251#0" expanded="true" />
+            <element signature="e#5342#5896#0" expanded="true" />
+            <element signature="e#5895#5896#0" expanded="true" />
+            <element signature="e#18553#18554#0" expanded="true" />
+            <element signature="e#18606#18607#0" expanded="true" />
+            <element signature="e#18673#18674#0" expanded="true" />
+            <element signature="e#18725#18726#0" expanded="true" />
           </folding>
         </state>
       </provider>
