@@ -33,6 +33,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.photoeditor.BrushDrawingView;
 import com.example.photoeditor.OnPhotoEditorListener;
 import com.example.photoeditor.PhotoEditor;
 import com.example.photoeditor.PhotoEditorView;
@@ -42,6 +43,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnPhotoEditorListener, PropertiesBSFragment.Properties{
 
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         mPropertiesBSFragment = new PropertiesBSFragment();
         mPropertiesBSFragment.setPropertiesChangeListener(this);
 
-        exView = (ImageView) findViewById(R.id.secView);
+        //exView = (ImageView) findViewById(R.id.secView);
         takePictureButton = (Button) findViewById(R.id.button_image);
         setMaskBtn = (Button) findViewById(R.id.buttonSet);
         getObjBtn = (Button) findViewById(R.id.buttonGet);
@@ -89,14 +91,14 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         Log.d("myLog","Height="+maskBitmap.getHeight() + " Width=" + maskBitmap.getWidth());
         Log.d("myLog","Height="+localBitmap.getHeight() + " Width=" + localBitmap.getWidth());
         try {
-            exView.setImageBitmap(maskBitmap);
+            //exView.setImageBitmap(maskBitmap);
         }catch (Exception e){
             e.printStackTrace();
         }
         try {
             imageView.getSource().setImageBitmap(localBitmap);
             imageView.setDrawingCacheEnabled(true);
-            basicBitmap = Bitmap.createBitmap(imageView.getDrawingCache());
+//            basicBitmap = Bitmap.createBitmap(imageView.getDrawingCache());
             imageView.setDrawingCacheEnabled(false);
         }catch (Exception e){
             e.printStackTrace();
@@ -303,12 +305,21 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
             mPhotoEditor.setBrushDrawingMode(false);
             Bitmap tempSrc = Bitmap.createBitmap(localBitmap);
             imageView.setDrawingCacheEnabled(true);
-            Bitmap tempDst = Bitmap.createScaledBitmap(imageView.getDrawingCache(), tempSrc.getWidth(), tempSrc.getHeight(), false);
+            Bitmap tempDst = Bitmap.createBitmap(imageView.getDrawingCache());
             //Bitmap tempDst = Bitmap.createBitmap(imageView.getDrawingCache());
             imageView.setDrawingCacheEnabled(false);
-            Bitmap result = Bitmap.createBitmap(tempSrc.getWidth(), tempSrc.getHeight(), Bitmap.Config.RGB_565);
-
-            Log.d("Size Dst",tempDst.getWidth() +" "+tempDst.getHeight());
+            Bitmap result = Bitmap.createBitmap(tempDst.getWidth(), tempDst.getHeight(), Bitmap.Config.RGB_565);
+            Paint brushPaint = imageView.getmBrushDrawingView().getmDrawPaint();
+            List<BrushDrawingView.LinePath> brushPath = imageView.getmBrushDrawingView().getmLinePaths();
+            Canvas brushCanvas = new Canvas(result);
+            brushCanvas.drawColor(Color.GREEN);
+            Log.d("paths", brushPath+"");
+            for (BrushDrawingView.LinePath linePath : brushPath) {
+                brushCanvas.drawPath(linePath.getDrawPath(), brushPaint);
+                Log.d("path", linePath.getDrawPath()+"");
+            }
+            brushCanvas.drawPath(imageView.getmBrushDrawingView().getmPath(), brushPaint);
+            /*Log.d("Size Dst",tempDst.getWidth() +" "+tempDst.getHeight());
             Log.d("Size Src", tempSrc.getWidth()+" "+tempSrc.getHeight());
             Canvas tempCanvas = new Canvas(result);
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -317,8 +328,10 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
             tempCanvas.drawBitmap(tempSrc, 0, 0, null);
             //mask = createTransparentBitmapFromBitmap(mask, Color.BLACK);//заменяем на маске Color.BLACK на прозрачный
             tempCanvas.drawBitmap(tempDst, 0, 0, paint);
-            paint.setXfermode(null);
-            exView.setImageBitmap(result);
+            paint.setXfermode(null);*/
+            mPhotoEditor.brushEraser();
+            imageView.getSource().setImageBitmap(result);
+            //exView.setImageBitmap(result);
         }catch (Exception e){
             e.printStackTrace();
         }

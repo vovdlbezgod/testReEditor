@@ -58,13 +58,6 @@
 
             </com.example.photoeditor.PhotoEditorView>
 
-            <ImageView
-                android:id="@+id/secView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/photo" />
-
         </LinearLayout>
 
     </LinearLayout>

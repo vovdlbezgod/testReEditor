@@ -175,6 +175,10 @@ public class BrushDrawingView extends View {
         return mLinePaths;
     }
 
+    public Path getmPath() {
+        return mPath;
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         for (LinePath linePath : mLinePaths) {
@@ -213,7 +217,7 @@ public class BrushDrawingView extends View {
         }
     }
 
-    private class LinePath {
+    public class LinePath {
         private Paint mDrawPaint;
         private Path mDrawPath;
 
@@ -222,11 +226,11 @@ public class BrushDrawingView extends View {
             mDrawPath = new Path(drawPath);
         }
 
-        Paint getDrawPaint() {
+        public Paint getDrawPaint() {
             return mDrawPaint;
         }
 
-        Path getDrawPath() {
+        public Path getDrawPath() {
             return mDrawPath;
         }
     }

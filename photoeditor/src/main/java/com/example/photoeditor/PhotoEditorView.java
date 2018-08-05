@@ -41,6 +41,10 @@ public class PhotoEditorView extends RelativeLayout {
         init(null);
     }
 
+    public BrushDrawingView getmBrushDrawingView() {
+        return mBrushDrawingView;
+    }
+
     public PhotoEditorView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
