@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         mPropertiesBSFragment = new PropertiesBSFragment();
         mPropertiesBSFragment.setPropertiesChangeListener(this);
 
-        //exView = (ImageView) findViewById(R.id.secView);
+        exView = (ImageView) findViewById(R.id.secView);
         takePictureButton = (Button) findViewById(R.id.button_image);
         setMaskBtn = (Button) findViewById(R.id.buttonSet);
         getObjBtn = (Button) findViewById(R.id.buttonGet);
@@ -293,6 +293,27 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         }
     }
 
+    private Bitmap getMaskForBrush(){
+        mPhotoEditor.setBrushDrawingMode(false);
+        Bitmap tempSrc = Bitmap.createBitmap(localBitmap);
+        imageView.setDrawingCacheEnabled(true);
+        Bitmap tempDst = Bitmap.createBitmap(imageView.getDrawingCache());
+        //Bitmap tempDst = Bitmap.createBitmap(imageView.getDrawingCache());
+        imageView.setDrawingCacheEnabled(false);
+        Bitmap result = Bitmap.createBitmap(tempDst.getWidth(), tempDst.getHeight(), Bitmap.Config.RGB_565);
+        Paint brushPaint = imageView.getmBrushDrawingView().getmDrawPaint();
+        List<BrushDrawingView.LinePath> brushPath = imageView.getmBrushDrawingView().getmLinePaths();
+        Canvas brushCanvas = new Canvas(result);
+        brushCanvas.drawARGB(80, 102, 204, 255);
+        Log.d("paths", brushPath+"");
+        for (BrushDrawingView.LinePath linePath : brushPath) {
+            brushCanvas.drawPath(linePath.getDrawPath(), linePath.getDrawPaint());
+            Log.d("path", linePath.getDrawPath()+"");
+        }
+        brushCanvas.drawPath(imageView.getmBrushDrawingView().getmPath(), brushPaint);
+        return Bitmap.createScaledBitmap(result, tempSrc.getWidth(), tempSrc.getHeight(), false);
+    }
+
     public void takePicture(View view) {
         /*Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         file = Uri.fromFile(getOutputMediaFile());
@@ -302,36 +323,9 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         startActivityForResult(intent, 100);*/
 
         try {
-            mPhotoEditor.setBrushDrawingMode(false);
-            Bitmap tempSrc = Bitmap.createBitmap(localBitmap);
-            imageView.setDrawingCacheEnabled(true);
-            Bitmap tempDst = Bitmap.createBitmap(imageView.getDrawingCache());
-            //Bitmap tempDst = Bitmap.createBitmap(imageView.getDrawingCache());
-            imageView.setDrawingCacheEnabled(false);
-            Bitmap result = Bitmap.createBitmap(tempDst.getWidth(), tempDst.getHeight(), Bitmap.Config.RGB_565);
-            Paint brushPaint = imageView.getmBrushDrawingView().getmDrawPaint();
-            List<BrushDrawingView.LinePath> brushPath = imageView.getmBrushDrawingView().getmLinePaths();
-            Canvas brushCanvas = new Canvas(result);
-            brushCanvas.drawColor(Color.GREEN);
-            Log.d("paths", brushPath+"");
-            for (BrushDrawingView.LinePath linePath : brushPath) {
-                brushCanvas.drawPath(linePath.getDrawPath(), brushPaint);
-                Log.d("path", linePath.getDrawPath()+"");
-            }
-            brushCanvas.drawPath(imageView.getmBrushDrawingView().getmPath(), brushPaint);
-            /*Log.d("Size Dst",tempDst.getWidth() +" "+tempDst.getHeight());
-            Log.d("Size Src", tempSrc.getWidth()+" "+tempSrc.getHeight());
-            Canvas tempCanvas = new Canvas(result);
-            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            tempCanvas.drawBitmap(tempSrc, 0, 0, null);
-            //mask = createTransparentBitmapFromBitmap(mask, Color.BLACK);//заменяем на маске Color.BLACK на прозрачный
-            tempCanvas.drawBitmap(tempDst, 0, 0, paint);
-            paint.setXfermode(null);*/
             mPhotoEditor.brushEraser();
-            imageView.getSource().setImageBitmap(result);
-            //exView.setImageBitmap(result);
+            //imageView.getSource().setImageBitmap(result);
+            exView.setImageBitmap(getMaskForBrush());
         }catch (Exception e){
             e.printStackTrace();
         }
