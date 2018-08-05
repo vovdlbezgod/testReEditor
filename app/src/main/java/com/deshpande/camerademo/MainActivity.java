@@ -304,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         Paint brushPaint = imageView.getmBrushDrawingView().getmDrawPaint();
         List<BrushDrawingView.LinePath> brushPath = imageView.getmBrushDrawingView().getmLinePaths();
         Canvas brushCanvas = new Canvas(result);
-        brushCanvas.drawARGB(80, 102, 204, 255);
+        brushCanvas.drawColor(Color.BLACK);
         Log.d("paths", brushPath+"");
         for (BrushDrawingView.LinePath linePath : brushPath) {
             brushCanvas.drawPath(linePath.getDrawPath(), linePath.getDrawPaint());
