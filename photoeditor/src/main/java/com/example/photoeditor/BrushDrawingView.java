@@ -151,7 +151,7 @@ public class BrushDrawingView extends View {
         return mDrawPaint.getColor();
     }
 
-    void clearAll() {
+    public void clearAll() {
         mLinePaths.clear();
         mRedoLinePaths.clear();
         if (mDrawCanvas != null) {

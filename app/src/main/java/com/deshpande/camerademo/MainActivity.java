@@ -392,6 +392,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
             // Create a media file name
             selectedOutputPath = mediaStorageDir.getPath() + File.separator + imageName;
             Log.d("PhotoEditorSDK", "selected camera path " + selectedOutputPath);
+            imageView.getmBrushDrawingView().clearAll();
             File file = new File(selectedOutputPath);
             try {
                 FileOutputStream out = new FileOutputStream(file);
