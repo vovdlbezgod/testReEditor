@@ -25,8 +25,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.*;
+import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -45,7 +47,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnPhotoEditorListener, PropertiesBSFragment.Properties{
+public class MainActivity extends AppCompatActivity implements OnPhotoEditorListener, PropertiesBSFragment.Properties, OnTouchListener{
 
     private Button takePictureButton;
     private Button setMaskBtn;
@@ -62,7 +64,8 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
     private static final String TAG = MainActivity.class.getSimpleName();
     private PropertiesBSFragment mPropertiesBSFragment;
     private ImageView exView;
-
+    float x;
+    float y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         mPropertiesBSFragment = new PropertiesBSFragment();
         mPropertiesBSFragment.setPropertiesChangeListener(this);
 
-        exView = (ImageView) findViewById(R.id.secView);
+        //exView = (ImageView) findViewById(R.id.secView);
         takePictureButton = (Button) findViewById(R.id.button_image);
         setMaskBtn = (Button) findViewById(R.id.buttonSet);
         getObjBtn = (Button) findViewById(R.id.buttonGet);
@@ -117,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
                 .build(); // build photo editor sdk
 
         mPhotoEditor.setOnPhotoEditorListener(this);
-
+        imageView.setOnTouchListener((OnTouchListener) this);
         setMaskBtn.setOnClickListener(setMskOncl);
         OnClickListener getMskOncl = new OnClickListener() {
             @Override
@@ -323,9 +326,10 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         startActivityForResult(intent, 100);*/
 
         try {
-            mPhotoEditor.brushEraser();
+            //mPhotoEditor.brushEraser();
+            mPhotoEditor.setBrushDrawingMode(false);
             //imageView.getSource().setImageBitmap(result);
-            exView.setImageBitmap(getMaskForBrush());
+            //exView.setImageBitmap(getMaskForBrush());
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -476,5 +480,40 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        x = event.getX();
+        y = event.getY();
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN: // нажатие
+                Log.d("TouchPos", "x: "+x+" y:"+y);
+                Log.d("Point in Mask",""+positionOfMask(getObjectByMask(maskBitmap),x,y));
+                if(positionOfMask(getObjectByMask(maskBitmap),x,y)){
+                    imageView.getSource().setImageBitmap(deletingMaskFromSource(localBitmap,maskBitmap));
+                    mPhotoEditor.addImage(getObjectByMask(maskBitmap));
+                }
+                /*sDown = "Down: " + x + "," + y;
+                sMove = ""; sUp = "";*/
+                break;
+            case MotionEvent.ACTION_MOVE: // движение
+                //sMove = "Move: " + x + "," + y;
+                break;
+            case MotionEvent.ACTION_UP: // отпускание
+            case MotionEvent.ACTION_CANCEL:
+                //sMove = "";
+                //sUp = "Up: " + x + "," + y;
+                break;
+        }
+        //tv.setText(sDown + "\n" + sMove + "\n" + sUp);
+        return true;
+    }
+    private boolean positionOfMask(Bitmap mask, float x, float y){
+        if(mask.getPixel(Math.round(x),Math.round(y))!=Color.TRANSPARENT){
+            return false;
+        }
+        return true;
     }
 }
