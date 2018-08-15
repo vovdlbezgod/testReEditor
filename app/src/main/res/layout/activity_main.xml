@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/imageview"
             android:layout_centerHorizontal="true"
-            android:text="Set mask" />
+            android:text="stickers" />
 
         <LinearLayout
             android:layout_width="match_parent"

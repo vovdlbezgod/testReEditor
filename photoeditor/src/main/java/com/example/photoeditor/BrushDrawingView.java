@@ -75,7 +75,7 @@ public class BrushDrawingView extends View {
         mDrawPaint.setStrokeCap(Paint.Cap.ROUND);
         mDrawPaint.setStrokeWidth(mBrushSize);
         mDrawPaint.setAlpha(mOpacity);
-        mDrawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.LIGHTEN));
+        mDrawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.ADD));
         this.setVisibility(View.GONE);
     }
 
@@ -89,7 +89,7 @@ public class BrushDrawingView extends View {
         mDrawPaint.setStrokeCap(Paint.Cap.ROUND);
         mDrawPaint.setStrokeWidth(mBrushSize);
         mDrawPaint.setAlpha(mOpacity);
-        mDrawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.LIGHTEN));
+        mDrawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.ADD));
     }
 
     void brushEraser() {

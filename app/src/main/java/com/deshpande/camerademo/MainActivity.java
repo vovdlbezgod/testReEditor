@@ -43,7 +43,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnPhotoEditorListener, PropertiesBSFragment.Properties, OnTouchListener{
+public class MainActivity extends AppCompatActivity implements OnPhotoEditorListener, PropertiesBSFragment.Properties, OnTouchListener, StickerBSFragment.StickerListener{
 
     private Button takePictureButton;
     private Button setMaskBtn;
@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
     private static final String TAG = MainActivity.class.getSimpleName();
     private PropertiesBSFragment mPropertiesBSFragment;
     private ImageView exView;
+    private StickerBSFragment mStickerBSFragment;
     float x;
     float y;
 
@@ -68,9 +69,12 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         super.onCreate(savedInstanceState);
         makeFullScreen();
         setContentView(R.layout.activity_main);
-
+        Log.d("Color.White=", Color.WHITE+"");
+        Log.d("Color.Black=", Color.BLACK+"");
         mPropertiesBSFragment = new PropertiesBSFragment();
         mPropertiesBSFragment.setPropertiesChangeListener(this);
+        mStickerBSFragment = new StickerBSFragment();
+        mStickerBSFragment.setStickerListener(this);
 
         //exView = (ImageView) findViewById(R.id.secView);
         takePictureButton = (Button) findViewById(R.id.button_image);
@@ -80,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         imageView = (PhotoEditorView) findViewById(R.id.photoEditorView);
         localBitmap = BitmapFactory.decodeResource(
                 getApplicationContext().getResources(),
-                R.drawable.photo);
+                R.drawable.photo_7);
         maskBitmap = BitmapFactory.decodeResource(
                 getApplicationContext().getResources(),
                 R.drawable.mask);
@@ -95,7 +99,8 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
             e.printStackTrace();
         }
         try {
-            imageView.getSource().setImageBitmap(seletingObjectOnMask(maskBitmap,Color.GREEN));
+            //imageView.getSource().setImageBitmap(seletingObjectOnMask(maskBitmap,Color.GREEN));
+            imageView.getSource().setImageBitmap(localBitmap);
             imageView.setDrawingCacheEnabled(true);
 //            basicBitmap = Bitmap.createBitmap(imageView.getDrawingCache());
             imageView.setDrawingCacheEnabled(false);
@@ -106,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         OnClickListener setMskOncl = new OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageView.getSource().setImageBitmap(deletingMaskFromSource(localBitmap, maskBitmap));
+                //imageView.getSource().setImageBitmap(deletingMaskFromSource(localBitmap, maskBitmap));
             }
         };
         mPhotoEditor = new PhotoEditor.Builder(this, imageView)
@@ -121,8 +126,9 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
         OnClickListener getMskOncl = new OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageView.getSource().setImageBitmap(seletingObjectOnMask(maskBitmap, Color.RED));
-                imageView.getmBrushDrawingView().clearAll();
+                //imageView.getSource().setImageBitmap(seletingObjectOnMask(maskBitmap, Color.RED));
+                //imageView.getmBrushDrawingView().clearAll();
+                mStickerBSFragment.show(getSupportFragmentManager(), mStickerBSFragment.getTag());
                 //imageView.getSource().setImageBitmap(getObjectByMask(maskBitmap));
             }
         };
@@ -382,6 +388,7 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
 
     public String saveImage(String folderName, String imageName) {
         String selectedOutputPath = "";
+        String maskSelectedOutputPath = "";
         if (isSDCARDMounted()) {
             File mediaStorageDir = new File(
                     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), folderName);
@@ -393,15 +400,21 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
             }
             // Create a media file name
             selectedOutputPath = mediaStorageDir.getPath() + File.separator + imageName;
+            maskSelectedOutputPath = mediaStorageDir.getPath() + File.separator + "mask_"+imageName;
             Log.d("PhotoEditorSDK", "selected camera path " + selectedOutputPath);
-            imageView.getmBrushDrawingView().clearAll();
+            //imageView.getmBrushDrawingView().clearAll();
             File file = new File(selectedOutputPath);
+            File maskFila = new File(maskSelectedOutputPath);
             try {
                 FileOutputStream out = new FileOutputStream(file);
                 if (imageView != null) {
                     imageView.setDrawingCacheEnabled(true);
-                    imageView.getDrawingCache().compress(Bitmap.CompressFormat.PNG, 80, out);
+                    Bitmap photo = Bitmap.createScaledBitmap(imageView.getDrawingCache(),512, 512, false);
+                    photo.compress(Bitmap.CompressFormat.JPEG, 100, out);
                 }
+                FileOutputStream outMask = new FileOutputStream(maskFila);
+                Bitmap maskBrush = Bitmap.createScaledBitmap(getMaskForBrush(),512, 512, false);
+                maskBrush.compress(Bitmap.CompressFormat.JPEG, 100, outMask);
                 out.flush();
                 out.close();
             } catch (Exception e) {
@@ -490,8 +503,8 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
                 Log.d("TouchPos", "x: "+x+" y:"+y);
                 Log.d("Point in Mask",""+ checkPositionOnMask(maskBitmap,x,y));
                 if(checkPositionOnMask(maskBitmap,x,y)){
-                    imageView.getSource().setImageBitmap(deletingMaskFromSource(localBitmap,maskBitmap));
-                    mPhotoEditor.addImage(getObjectByMask(maskBitmap));
+                    //imageView.getSource().setImageBitmap(deletingMaskFromSource(localBitmap,maskBitmap));
+                    //mPhotoEditor.addImage(getObjectByMask(maskBitmap));
                 }
                 /*sDown = "Down: " + x + "," + y;
                 sMove = ""; sUp = "";*/
@@ -520,5 +533,12 @@ public class MainActivity extends AppCompatActivity implements OnPhotoEditorList
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void onStickerClick(Bitmap bitmap) {
+        mPhotoEditor.addImage(bitmap);
+        Log.d("stiker",bitmap+"");
+        //mTxtCurrentTool.setText(R.string.label_sticker);
     }
 }
